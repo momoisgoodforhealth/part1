@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+/*import React, { useState } from 'react'
 
 const App = () => {
     const [counter, setCounter] = useState(0)
@@ -32,6 +32,62 @@ const App = () => {
                 text='minus' />
         </div>
     )
+}  */
+
+ import React, { useState } from 'react'
+
+const App = () => {
+    // save clicks of each button to its own state
+    const Heading = () => <div><h1>give feedback</h1></div>
+    const Heading2 = () => <div><h1>statistics</h1></div>
+
+
+    const Goodval = ({ v }) => {
+        return (<div>good {v}</div>)
+       
+    }
+
+    const Neutralval = ({v}) => {
+        return (<div>neutral {v}</div>)
+    }
+
+    const Badval = ({v}) => {
+        return (<div>bad {v}</div>)
 }
 
+    const [good, setGood] = useState(0)
+    const [neutral, setNeutral] = useState(0)
+    const [bad, setBad] = useState(0)
+
+
+    const Button = ({ onClick, text }) => {
+        return (
+            <button onClick={onClick}>
+                {text}
+            </button>
+            )
+    }
+
+    const good1 = () => setGood(good + 1)
+    const neutral1 = () => setNeutral(neutral + 1)
+    const bad1 = () => setBad(bad+1)
+
+    return (
+        <div>
+            <Heading />
+            <Button onClick={good1}
+                text='good' />
+            <Button onClick={neutral1}
+                text='neutral' />
+            <Button onClick={bad1}
+                text='bad' />
+            <Heading2 />
+            <Goodval v={good} />
+            <Neutralval v={neutral} />
+            <Badval v={bad} />
+
+        </div>
+    )
+} 
+  
 export default App
