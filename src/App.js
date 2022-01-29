@@ -44,16 +44,16 @@ const App = () => {
 
     const Goodval = ({ v }) => {
         return (<div>good {v}</div>)
-       
+
     }
 
-    const Neutralval = ({v}) => {
+    const Neutralval = ({ v }) => {
         return (<div>neutral {v}</div>)
     }
 
-    const Badval = ({v}) => {
+    const Badval = ({ v }) => {
         return (<div>bad {v}</div>)
-}
+    }
 
     const [good, setGood] = useState(0)
     const [neutral, setNeutral] = useState(0)
@@ -65,12 +65,20 @@ const App = () => {
             <button onClick={onClick}>
                 {text}
             </button>
-            )
+        )
     }
+
+    const Total = ({ total }) => <div>all {total}</div>
+    const Avg = ({ ave }) => <div>average {ave}</div>
+    const Pos = ({posi}) => <div>positive {posi}%</div>
 
     const good1 = () => setGood(good + 1)
     const neutral1 = () => setNeutral(neutral + 1)
-    const bad1 = () => setBad(bad+1)
+    const bad1 = () => setBad(bad + 1)
+
+    var tot = good + bad + neutral
+    var avg = (good - bad) / tot
+    var poscent = (good/tot) *100
 
     return (
         <div>
@@ -85,7 +93,10 @@ const App = () => {
             <Goodval v={good} />
             <Neutralval v={neutral} />
             <Badval v={bad} />
-
+            <Total total={tot} />
+            <Avg ave={avg} />
+            <Pos posi={poscent} />
+           
         </div>
     )
 } 
