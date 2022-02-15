@@ -38,7 +38,7 @@ const App = () => {
 
 const App = () => {
     // save clicks of each button to its own state
-    const Heading = () => <div><h1>give feedback</h1></div>
+    const Heading = () => <div><h1>give feedback dong</h1></div>
     const Heading2 = () => <div><h1>statistics</h1></div>
 
 
