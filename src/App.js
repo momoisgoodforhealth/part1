@@ -39,6 +39,27 @@ const Statistics = (props) => {
     var avg = (props.good - props.bad) / tot
     var poscent = (props.good / tot) * 100
 
+    if (tot != 0) {
+        return (
+            <div>
+                <Heading />
+                <Button onClick={good1}
+                    text='good' />
+                <Button onClick={neutral1}
+                    text='neutral' />
+                <Button onClick={bad1}
+                    text='bad' />
+                <Heading2 />
+                <Goodval v={props.good} />
+                <Neutralval v={props.neutral} />
+                <Badval v={props.bad} />
+                <Total total={tot} />
+                <Avg ave={avg} />
+                <Pos posi={poscent} />
+            </div>
+        )
+
+    }
     return (
         <div>
             <Heading />
@@ -49,14 +70,10 @@ const Statistics = (props) => {
             <Button onClick={bad1}
                 text='bad' />
             <Heading2 />
-            <Goodval v={props.good} />
-            <Neutralval v={props.neutral} />
-            <Badval v={props.bad} />
-            <Total total={tot} />
-            <Avg ave={avg} />
-            <Pos posi={poscent} />
+            <div>No feedback given</div>
         </div>
-        )
+    )
+
 
 }
 
